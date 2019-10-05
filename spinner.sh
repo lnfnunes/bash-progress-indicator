@@ -20,7 +20,16 @@ set_spinner() {
     spinner4)
       SPINNER=(":(" ":|" ":)" ":D")
       SPINNER_INTERVAL=0.5
-      ;;    
+      ;;
+    spinner5)
+      SPINNER=("◇" "◈" "◆")
+      SPINNER_INTERVAL=0.5
+      ;;
+
+    spinner6)
+      SPINNER=("⚬" "⚭" "⚮" "⚯")
+      SPINNER_INTERVAL=0.25
+      ;;  
     *)
       echo "No spinner is defined for $1"
       exit 1
