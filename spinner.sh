@@ -1,35 +1,38 @@
 #!/bin/bash -e
 
-declare -x SPINNER
-declare -x SPINNER_INTERVAL
+declare -x FRAME
+declare -x FRAME_INTERVAL
 
 set_spinner() {
   case $1 in
     spinner1)
-      SPINNER=("⠋" "⠙" "⠹" "⠸" "⠼" "⠴" "⠦" "⠧" "⠇" "⠏")
-      SPINNER_INTERVAL=0.1
+      FRAME=("⠋" "⠙" "⠹" "⠸" "⠼" "⠴" "⠦" "⠧" "⠇" "⠏")
+      FRAME_INTERVAL=0.1
       ;;
     spinner2)
-      SPINNER=("-" "\\" "|" "/")
-      SPINNER_INTERVAL=0.25
+      FRAME=("-" "\\" "|" "/")
+      FRAME_INTERVAL=0.25
       ;;
     spinner3)
-      SPINNER=("◐" "◓" "◑" "◒")
-      SPINNER_INTERVAL=0.5
+      FRAME=("◐" "◓" "◑" "◒")
+      FRAME_INTERVAL=0.5
       ;;
     spinner4)
-      SPINNER=(":(" ":|" ":)" ":D")
-      SPINNER_INTERVAL=0.5
+      FRAME=(":(" ":|" ":)" ":D")
+      FRAME_INTERVAL=0.5
       ;;
     spinner5)
-      SPINNER=("◇" "◈" "◆")
-      SPINNER_INTERVAL=0.5
+      FRAME=("◇" "◈" "◆")
+      FRAME_INTERVAL=0.5
       ;;
-
     spinner6)
-      SPINNER=("⚬" "⚭" "⚮" "⚯")
-      SPINNER_INTERVAL=0.25
-      ;;  
+      FRAME=("⚬" "⚭" "⚮" "⚯")
+      FRAME_INTERVAL=0.25
+      ;;
+    spinner7)
+      FRAME=("░" "▒" "▓" "█" "▓" "▒")
+      FRAME_INTERVAL=0.25
+      ;;
     *)
       echo "No spinner is defined for $1"
       exit 1
@@ -47,9 +50,9 @@ start() {
     while ps -p $pid &>/dev/null; do
       echo -ne "\\r[   ] ${STEPS[$step]} ..."
 
-      for k in "${!SPINNER[@]}"; do
-        echo -ne "\\r[ ${SPINNER[k]} ]"
-        sleep $SPINNER_INTERVAL
+      for k in "${!FRAME[@]}"; do
+        echo -ne "\\r[ ${FRAME[k]} ]"
+        sleep $FRAME_INTERVAL
       done
     done
 
@@ -59,3 +62,5 @@ start() {
 
   tput cnorm -- normal
 }
+
+set_spinner "$1"

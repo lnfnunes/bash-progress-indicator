@@ -18,11 +18,9 @@ case $1 in
     ;;
   progress_advanced)
     . 'progress_advanced.sh'
-    start
     ;;
   spinner*)
     . 'spinner.sh'
-    set_spinner "$1"
     ;;
   *)
     echo "Invalid option $1!"
