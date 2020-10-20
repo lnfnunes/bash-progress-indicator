@@ -33,6 +33,22 @@ set_spinner() {
       FRAME=("░" "▒" "▓" "█" "▓" "▒")
       FRAME_INTERVAL=0.25
       ;;
+    spinner8)
+      FRAME=("☉" "◎" "◉" "●" "◉")
+      FRAME_INTERVAL=0.1
+      ;;
+    spinner9)
+      FRAME=("❤" "♥" "♡")
+      FRAME_INTERVAL=0.15
+      ;;
+    spinner10)
+      FRAME=("✧" "☆" "★" "✪" "◌" "✲")
+      FRAME_INTERVAL=0.1
+      ;;
+    spinner11)
+      FRAME=("●" "◕" "☯" "◔" "◕")
+      FRAME_INTERVAL=0.25
+      ;;
     *)
       echo "No spinner is defined for $1"
       exit 1
